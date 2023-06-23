@@ -1,0 +1,66 @@
+1.
+API - Application Programming Interface is a set of commands, functions, protocols,
+and objects that programmers can use to create software or interact with an
+external system.
+Eg: We can interact with websites in the internet and pull live data from these websites.
+
+- We use the rules prescribed by the API to make requests to the external system.
+- We can use the API website of each target website to know what the rules
+of interaction are and to make valid requests to the target website to, say, pull live data.
+
+2.
+API ENDPOINTS AND MAKING API CALLS
+Analogy - In order to get money from the bank, you need to know where the bank is.
+In the same way, in order to get something from the website, api acts as teh bank branch of the
+website. API is the bank teller that is a means of access to the vault.
+
+API is usually a url that can be used to connect to the api. That is called an API ENDPOINT.
+
+NOTE: api calls return json data
+
+3.
+How to get api data into a python prgram
+
+step1 - import requests to the program
+eg: import requests
+
+step2 - make request to get response from an api endpoint (ie. url)
+eg :
+response = requests.get(url="<put url here>")
+
+if we print response, we will get a number. That is a response code.
+
+Meaning of response codes (like 404) - short summary is to look at the left most digit
+1xx = Hold on, process not complete yet
+2xx = Here you go, response receive is successful
+3xx = You dont have permission to make a request like that
+4xx = You made a mistake in the request like mistae in url
+5xx = Server made mistake in its processing of the response
+
+We can derive certain information from the response code as well
+eg:
+status_code - which is to just print the response code value
+We can use this attribute to raise different exceptions to different response failures
+
+https://www.webfx.com/web-development/glossary/http-status-codes/
+website that describes meaning of each status code
+
+We can also raise tailored exceptions using the methods of requests module
+
+EG: response.raise_for_status()
+this would raise exceptions based on unsuccessful error code
+
+STEP 3- to get the json file after getting the response
+
+eg: data = response.json()
+
+We can also get specific values from the json as dictionary subscriptions
+eg: data[<key>]
+
+
+4.
+API Parameters
+Some APIs have the option to provide parameters to the APIs to get targetted data back
+These paramters will go in the get function of requests
+
+API key - 9QGA2HNIITTAMFK8 for stock study
